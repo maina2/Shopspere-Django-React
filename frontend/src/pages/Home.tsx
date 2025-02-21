@@ -3,6 +3,7 @@ import { getProducts } from "../services/productsServices";
 import { Product } from "../types/Product";
 import { Link } from "react-router-dom";
 import '../styles/home.css'
+import Categories from "../components/Categories";
 
 const Home: React.FC = () => {
   const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
@@ -46,29 +47,7 @@ const Home: React.FC = () => {
 
       {/* Categories Section */}
       <section className="categories">
-        <h2>Shop by Category</h2>
-        <div className="category-list">
-          <Link to="/categories/1/products" className="category-card">
-            <img src="/images/electronics.jpg" alt="Electronics" />
-            <span>Electronics</span>
-          </Link>
-          <Link to="/categories/2/products" className="category-card">
-            <img src="/images/beauty.jpg" alt="Beauty" />
-            <span>Beauty</span>
-          </Link>
-          <Link to="/categories/3/products" className="category-card">
-            <img src="/images/food.jpg" alt="Food" />
-            <span>Food</span>
-          </Link>
-          <Link to="/categories/4/products" className="category-card">
-            <img src="/images/utensils.jpg" alt="Utensils" />
-            <span>Utensils</span>
-          </Link>
-          <Link to="/categories/5/products" className="category-card">
-            <img src="/images/cars.jpg" alt="Cars" />
-            <span>Cars</span>
-          </Link>
-        </div>
+        <Categories/>
       </section>
 
       {/* Footer Section */}

@@ -11,6 +11,14 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class CategorySerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()  # Add this line
+
     class Meta:
         model = Category
         fields = '__all__'
+
+    def get_image(self, obj):
+        if obj.image:
+            # Construct the full Cloudinary URL
+            return f"https://res.cloudinary.com/duknvsch4/{obj.image}"
+        return None

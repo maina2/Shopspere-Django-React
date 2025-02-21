@@ -27,3 +27,8 @@ export const deleteProduct = async (id:string,productData:object)=>{
     const response = await api.delete(`/products/${id}`,productData)
     return response.data
 }
+
+export const getCategories = async () => {
+    const response = await api.get("/products/categories/");
+    return response.data;
+  };
