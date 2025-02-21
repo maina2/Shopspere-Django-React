@@ -1,7 +1,7 @@
 import  { useState } from "react";
 import { registerUser } from "../services/authService";
 import { useNavigate } from "react-router-dom";
-import "../styles/register.css"; // Use the shared Auth.css
+import "../styles/register.css"; 
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -70,7 +70,7 @@ const Register = () => {
                 placeholder="John"
                 required
               />
-              <span className="input-icon">👤</span>
+            
             </div>
 
             <div className="input-group">
@@ -84,7 +84,7 @@ const Register = () => {
                 placeholder="Doe"
                 required
               />
-              <span className="input-icon">👥</span>
+           
             </div>
           </div>
 
@@ -99,7 +99,7 @@ const Register = () => {
               placeholder="johndoe123"
               required
             />
-            <span className="input-icon">🔑</span>
+            
           </div>
 
           <div className="input-group">
@@ -113,7 +113,7 @@ const Register = () => {
               placeholder="john@example.com"
               required
             />
-            <span className="input-icon">✉️</span>
+            
           </div>
 
           <div className="input-group">
@@ -127,7 +127,6 @@ const Register = () => {
               placeholder="••••••••"
               required
             />
-            <span className="input-icon">🔒</span>
           </div>
 
           <button type="submit" className="auth-button" disabled={isLoading}>
