@@ -27,7 +27,6 @@ class RegisterView(APIView):
             return Response(data=response, status=status.HTTP_201_CREATED)
         return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
 # User Login (Open to anyone)
 class LoginView(APIView):
     permission_classes = [AllowAny]  # Anyone can log in

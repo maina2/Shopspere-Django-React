@@ -1,5 +1,10 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
+import logging
+
+
+logger = logging.getLogger(__name__)
+
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -14,15 +19,12 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id', 'username', 'email', 'first_name', 'last_name', 'bio', 'profile_picture')
         read_only_fields = ('id',)
 
-
 class RegisterSerializer(serializers.ModelSerializer):
-    profile_picture = serializers.ImageField(required=False)  # Allow image upload
-
     password = serializers.CharField(write_only=True)
 
     class Meta:
         model = get_user_model()
-        fields = ('username', 'email', 'password', 'first_name', 'last_name', 'bio', 'profile_picture', 'phone','is_admin')
+        fields = ('username', 'email', 'password', 'first_name', 'last_name', 'bio', 'profile_picture','phone')
         
     def create(self, validated_data):
         # Create the user with the password field

@@ -21,9 +21,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=lambda v: v.split(','))
 # Application definition
 
 INSTALLED_APPS = [
-    'users',
-    'products',
-    'cart',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,6 +34,9 @@ INSTALLED_APPS = [
     'corsheaders',  
     'rest_framework',  
     'rest_framework_simplejwt', 
+    'users',
+    'products',
+    'cart',
 ]
 
 MIDDLEWARE = [
