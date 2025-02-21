@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getProducts } from "../services/productsServices";
 import { Product } from "../types/Product";
 import { Link } from "react-router-dom";
-import '../styles/home.css'
+import "../styles/home.css";
 import Categories from "../components/Categories";
 
 const Home: React.FC = () => {
@@ -34,9 +34,18 @@ const Home: React.FC = () => {
         <div className="product-list">
           {featuredProducts.map((product) => (
             <div key={product.id} className="product-card">
-              <img src={product.image} alt={product.name} className="product-image" />
+              <img
+                src={product.image}
+                alt={product.name}
+                className="product-image"
+              />
               <h3>{product.name}</h3>
-              <p className="price">${product.price.toFixed(2)}</p>
+              <p className="price">
+                $
+                {typeof product.price === "number"
+                  ? product.price.toFixed(2)
+                  : Number(product.price).toFixed(2)}
+              </p>{" "}
               <Link to={`/products/${product.id}`} className="view-details">
                 View Details
               </Link>
@@ -47,7 +56,7 @@ const Home: React.FC = () => {
 
       {/* Categories Section */}
       <section className="categories">
-        <Categories/>
+        <Categories />
       </section>
 
       {/* Footer Section */}
