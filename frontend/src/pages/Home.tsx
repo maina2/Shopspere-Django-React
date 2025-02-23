@@ -4,6 +4,7 @@ import { Product } from "../types/Product";
 import { Link } from "react-router-dom";
 import "../styles/home.css";
 import Categories from "../components/Categories";
+import Navbar from "../components/Navbar"; // Import the Navbar component
 
 const Home: React.FC = () => {
   const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
@@ -16,6 +17,9 @@ const Home: React.FC = () => {
 
   return (
     <div className="home-page">
+      {/* Navbar Section */}
+      <Navbar />
+
       {/* Header Section */}
       <header className="header">
         <div className="header-content">
@@ -28,6 +32,7 @@ const Home: React.FC = () => {
         </div>
       </header>
 
+      {/* Categories Section */}
       <section className="categories">
         <Categories />
       </section>
@@ -49,7 +54,7 @@ const Home: React.FC = () => {
                 {typeof product.price === "number"
                   ? product.price.toFixed(2)
                   : Number(product.price).toFixed(2)}
-              </p>{" "}
+              </p>
               <Link to={`/products/${product.id}`} className="view-details">
                 View Details
               </Link>
@@ -57,9 +62,6 @@ const Home: React.FC = () => {
           ))}
         </div>
       </section>
-
-      {/* Categories Section */}
-
 
       {/* Footer Section */}
       <footer className="footer">
