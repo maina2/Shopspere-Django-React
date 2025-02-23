@@ -28,6 +28,10 @@ const Home: React.FC = () => {
         </div>
       </header>
 
+      <section className="categories">
+        <Categories />
+      </section>
+
       {/* Featured Products Section */}
       <section className="featured-products">
         <h2>Featured Products</h2>
@@ -55,9 +59,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Categories Section */}
-      <section className="categories">
-        <Categories />
-      </section>
+
 
       {/* Footer Section */}
       <footer className="footer">
