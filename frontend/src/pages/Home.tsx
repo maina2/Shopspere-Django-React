@@ -11,7 +11,9 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     getProducts().then((data: Product[]) => {
-      setFeaturedProducts(data.slice(0, 5));
+      const shuffled = data.sort(() => 0.5 - Math.random());
+      const randomProducts = shuffled.slice(0, 8);
+      setFeaturedProducts(randomProducts);
     });
   }, []);
 

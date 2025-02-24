@@ -1,40 +1,54 @@
 import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
+import "../styles/cart.css"; // Import the CSS file
 
 const Cart = () => {
   const { cart, updateItem, removeItem, clearCartItems } = useCart();
   const navigate = useNavigate();
 
   return (
-    <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-4">Shopping Cart</h2>
-      
+    <div className="cart-container">
+      <h2 className="cart-title">Shopping Cart</h2>
+
       {cart.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <p className="empty-cart-message">Your cart is empty.</p>
       ) : (
-        <div>
+        <div className="cart-content">
           {cart.map((item) => (
-            <div key={item.id} className="flex justify-between items-center border-b py-2">
-              <img src={item.image} alt={item.name} className="w-16 h-16 rounded-md" />
-              <span className="flex-1 ml-4">{item.name}</span>
-              <span>${item.price}</span>
+            <div key={item.id} className="cart-item">
+              <img
+                src={item.image}
+                alt={item.name}
+                className="cart-item-image"
+              />
+              <span className="cart-item-name">{item.name}</span>
+              <span className="cart-item-price">${item.price}</span>
               <input
                 type="number"
                 value={item.quantity}
                 min="1"
                 onChange={(e) => updateItem(item.id, parseInt(e.target.value))}
-                className="w-16 text-center border rounded-md mx-2"
+                className="cart-item-quantity"
               />
-              <button onClick={() => removeItem(item.id)} className="bg-red-500 text-white px-2 py-1 rounded">
+              <button
+                onClick={() => removeItem(item.id)}
+                className="remove-item-button"
+              >
                 Remove
               </button>
             </div>
           ))}
-          <div className="flex justify-between mt-4">
-            <button onClick={clearCartItems} className="bg-gray-500 text-white px-4 py-2 rounded">
+          <div className="cart-actions">
+            <button
+              onClick={clearCartItems}
+              className="clear-cart-button"
+            >
               Clear Cart
             </button>
-            <button onClick={() => navigate("/checkout")} className="bg-blue-500 text-white px-4 py-2 rounded">
+            <button
+              onClick={() => navigate("/checkout")}
+              className="checkout-button"
+            >
               Checkout
             </button>
           </div>
