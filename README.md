@@ -1,5 +1,5 @@
 ShopSphere 🛒
-Live Demo: ShopSphere on Render
+Live Demo: [ShopSphere on Render](https://shopsphere-clientside.onrender.com/)
 
 ShopSphere is a modern e-commerce platform built using React (TypeScript) for the frontend and Django REST Framework for the backend. It provides a seamless shopping experience with features like product browsing, cart management, user authentication, and order tracking.
 
